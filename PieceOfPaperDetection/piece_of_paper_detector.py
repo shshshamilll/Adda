@@ -13,6 +13,7 @@ class PieceOfPaperDetector():
     Methods:
         get_piece_of_paper_bbox(): Returns the bounding box coordinates for the piece of paper in the image.
     """
+
     def __init__(self, api_key, project_id, version_number):
         """
         Initializes the PieceOfPaperDetector object.
