@@ -2,11 +2,11 @@ from PIL import ImageDraw, ImageFont
 
 class Combiner():
     """
-    The Combiner class is used to add formatted text to an image within a specified bounding box.
+    This class is used to add formatted text to an image within a specified bounding box.
 
     Attributes:
-        offset (int): Offset for text positioning.
-        font (ImageFont.FreeTypeFont): Font used to render the text.
+        offset: Offset for text positioning.
+        font: Font used to render the text.
 
     Methods:
         combine(): Saves the combined image.
@@ -24,11 +24,11 @@ class Combiner():
         Adds text to the image within the specified bounding box, handling line breaks.
 
         Parameters:
-            image (PIL.Image.Image): The image to which the text will be added.
-            text (str): The text to be added.
-            bbox (np.ndarray): Coordinates of the bounding box coordinates in the format
-                               [x_min, y_min, x_max, y_max], where (x_min, y_min) is the top-left
-                               corner and (x_max, y_max) is the bottom-right corner.
+            image: The image to which the text will be added.
+            text: The text to be added.
+            bbox: Coordinates of the bounding box coordinates in the format
+                  [x_min, y_min, x_max, y_max], where (x_min, y_min) is the top-left
+                  corner and (x_max, y_max) is the bottom-right corner.
         """
         draw = ImageDraw.Draw(image)
         formatted_text = text[0]

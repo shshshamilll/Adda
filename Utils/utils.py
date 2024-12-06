@@ -29,7 +29,7 @@ def get_comments(vk_session, group_id, last_post_id):
         last_post_id: The ID of the post for which to retrieve comments (last post).
 
     Returns:
-        A dictionary.
+        A dictionary of comments.
     """
     vk = vk_session.get_api()
     comments = vk.wall.getComments(

@@ -3,12 +3,12 @@ import requests
 
 class PieceOfPaperDetector():
     """
-    A class for detecting a piece of paper in an image using the Roboflow API.
+    A class for detecting a piece of paper in an image.
 
     Attributes:
-        api_key (str): The API key for accessing Roboflow.
-        project_id (str): The project ID.
-        version_number (str): The version number.
+        api_key: The API key for accessing Roboflow.
+        project_id: The Roboflow project ID.
+        version_number: The Roboflow project version number.
 
     Methods:
         get_piece_of_paper_bbox(): Returns the bounding box coordinates for the piece of paper in the image.
@@ -19,9 +19,9 @@ class PieceOfPaperDetector():
         Initializes the PieceOfPaperDetector object.
 
         Parameters:
-            api_key (str): The API key for accessing Roboflow.
-            project_id (str): The project ID.
-            version_number (str): The version number.
+            api_key: The API key for accessing Roboflow.
+            project_id: The Roboflow project ID.
+            version_number: The Roboflow project version number.
         """
         self.api_key = api_key
         self.project_id = project_id
@@ -34,9 +34,9 @@ class PieceOfPaperDetector():
         The image "remote_generated_image.png" is expected to be in the "Content" folder.
 
         Returns:
-            np.ndarray: An array containing the bounding box coordinates in the format
-                        [x_min, y_min, x_max, y_max], where (x_min, y_min) is the top-left
-                        corner and (x_max, y_max) is the bottom-right corner.
+            An array containing the bounding box coordinates in the format
+            [x_min, y_min, x_max, y_max], where (x_min, y_min) is the top-left
+            corner and (x_max, y_max) is the bottom-right corner.
         """
         with open("Content/remote_generated_image.png", "rb") as file:
             predictions = requests.post(f"https://detect.roboflow.com/{self.project_id}/{self.version_number}?api_key={self.api_key}", files={"file": ("remote_generated_image.png", file, "image/png")}).json()["predictions"][0]
