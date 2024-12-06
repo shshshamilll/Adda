@@ -39,8 +39,6 @@ def get_comments(vk_session, group_id, last_post_id):
         extended=0,
         thread_items_count=10
     )
-    print(type(comments))
-    print(comments)
     return comments
 
 def get_attachment(vk_session, group_id):

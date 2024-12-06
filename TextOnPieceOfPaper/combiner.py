@@ -33,14 +33,14 @@ class Combiner():
         draw = ImageDraw.Draw(image)
         formatted_text = text[0]
         for i in range(1, len(text)):
-            bbox = draw.textbbox(
+            text_bbox = draw.textbbox(
                 (int(bbox[0] + self.offset), int(bbox[1] + self.offset / 2)),
                 formatted_text + text[i],
                 font=self.font
             )
-            if bbox[2] > int(bbox[2] - self.offset) and text[i] != " ":
+            if text_bbox[2] > int(bbox[2] - self.offset) and text[i] != " ":
                 formatted_text += "\n" + text[i]
-            elif bbox[2] > int(bbox[2] - self.offset) and text[i] == " ":
+            elif text_bbox[2] > int(bbox[2] - self.offset) and text[i] == " ":
                 formatted_text += "\n"
             else:
                 formatted_text += text[i]
