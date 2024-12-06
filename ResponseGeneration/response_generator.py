@@ -102,6 +102,6 @@ class ResponseGenerator():
         tools = [search_tool]
         llm_with_tools = llm.bind_tools(tools)
         agent = self._get_agent(prompt, llm_with_tools)
-        agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+        agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=False)
         response = agent_executor.invoke({"input": input, "chat_history": chat_history})["output"]
         return response
