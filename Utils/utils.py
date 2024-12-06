@@ -4,20 +4,20 @@ import io
 
 def get_last_post_id(vk_session, group_id):
     """
-    Retrieves the ID of the most recent post.
+    Retrieves the ID of the second most recent post.
 
     Parameters:
         vk_session: VK API session.
         group_id: VK group ID in the format "-<number>".
 
     Returns:
-        The ID of the most recent post.
+        The ID of the second most recent post.
     """
     vk = vk_session.get_api()
     response = vk.wall.get(
         owner_id=group_id
     )
-    return response["items"][0]["id"]
+    return response["items"][1]["id"]
 
 def get_comments(vk_session, group_id, last_post_id):
     """
