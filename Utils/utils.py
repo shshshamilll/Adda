@@ -87,10 +87,10 @@ def publish_comment(vk_session, group_id, post_id, comment_id, attachment):
 
 def decode_image(image_in_base64_format):
     """
-    Decodes an image from a Base64-encoded string.
+    Decodes an image from a base64 format.
 
     Parameters:
-        image_in_base64_format: The Base64-encoded image string.
+        image_in_base64_format: The image in base64 format.
 
     Returns:
         A PIL Image object.
