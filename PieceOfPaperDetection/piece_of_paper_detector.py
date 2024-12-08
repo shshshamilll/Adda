@@ -7,25 +7,19 @@ class PieceOfPaperDetector():
 
     Attributes:
         api_key: The API key for accessing Roboflow.
-        project_id: The Roboflow project ID.
-        version_number: The Roboflow project version number.
 
     Methods:
         get_piece_of_paper_bbox(): Returns the bounding box coordinates for the piece of paper in the image.
     """
 
-    def __init__(self, api_key, project_id, version_number):
+    def __init__(self, api_key):
         """
         Initializes the PieceOfPaperDetector object.
 
         Parameters:
             api_key: The API key for accessing Roboflow.
-            project_id: The Roboflow project ID.
-            version_number: The Roboflow project version number.
         """
         self.api_key = api_key
-        self.project_id = project_id
-        self.version_number = version_number
 
     def get_piece_of_paper_bbox(self):
         """
@@ -39,6 +33,6 @@ class PieceOfPaperDetector():
             corner and (x_max, y_max) is the bottom-right corner.
         """
         with open("Content/remote_generated_image.png", "rb") as file:
-            predictions = requests.post(f"https://detect.roboflow.com/{self.project_id}/{self.version_number}?api_key={self.api_key}", files={"file": ("remote_generated_image.png", file, "image/png")}).json()["predictions"][0]
+            predictions = requests.post(f"https://detect.roboflow.com/adda-bzsbn/1?api_key={self.api_key}", files={"file": ("remote_generated_image.png", file, "image/png")}).json()["predictions"][0]
         piece_of_paper_bbox = np.array([predictions["x"] - predictions["width"] / 2, predictions["y"] - predictions["height"] / 2, predictions["x"] + predictions["width"] / 2, predictions["y"] + predictions["height"] / 2])
         return piece_of_paper_bbox
