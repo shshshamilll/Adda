@@ -5,6 +5,7 @@ from langchain_core.messages import AIMessage, HumanMessage
 from langchain_postgres import PostgresChatMessageHistory
 from TextOnPieceOfPaper.combiner import Combiner
 from dotenv import load_dotenv
+import traceback
 import argparse
 import requests
 import psycopg
@@ -116,6 +117,7 @@ def main(args):
                                 clear_Content_folder()
             except Exception as error:
                 print(error)
+                traceback.print_exc()
             time.sleep(1 * 5)
 
 
