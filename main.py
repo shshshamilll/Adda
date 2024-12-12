@@ -54,8 +54,6 @@ piece_of_paper_detector = PieceOfPaperDetector(
 combiner = Combiner()
 
 def create_comment_and_get_caption(input, messages=None):
-    print(input)
-    print(messages)
     """
     Creates a comment image by generating an image, and combining it with the response text, and also returns the caption.
 
@@ -90,7 +88,6 @@ def main(args):
                 with open("stop_or_continue.txt", "r") as file:
                     file_content = file.read().strip()
                     stop = int(file_content) if file_content else 0
-                print("stop: ", stop)
                 if stop:
                     clear_table_and_close_connection(connection, table_name)
                     clear_Content_folder()
