@@ -95,7 +95,7 @@ class ResponseGenerator():
         prompt = self._get_prompt()
         llm = ChatOpenAI(
             model=self.llm_model,
-            temperature=0,
+            temperature=0, # ------------------------------------------------------------------------------------------------------------
             openai_api_key=self.api_key
         )
         search_tool = DuckDuckGoSearchRun(api_wrapper=DuckDuckGoSearchAPIWrapper())

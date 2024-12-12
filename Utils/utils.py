@@ -42,13 +42,14 @@ def get_comments(vk_session, group_id, last_post_id):
     )
     return comments
 
-def get_attachment(vk_session, group_id):
+def get_attachment(vk_session, group_id, caption):
     """
     Uploads an image and retrieves the attachment ID.
 
     Parameters:
         vk_session: VK API session.
         group_id: VK group ID with a minus sign.
+        caption: The caption text to be added to the uploaded photo.
 
     Returns:
         The attachment ID.
@@ -61,7 +62,8 @@ def get_attachment(vk_session, group_id):
         group_id=group_id[1:],
         photo=response["photo"],
         server=response["server"],
-        hash=response["hash"]
+        hash=response["hash"],
+        caption=caption
     )[0]
     attachment = f"photo{photo['owner_id']}_{photo['id']}"
     return attachment
